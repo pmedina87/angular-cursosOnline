@@ -6,27 +6,17 @@
             <th>Descripcion</th>
             <th>Precio</th>
             <th>Dirigido</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="cursos.imagen" [alt]="cursos.titulo"></td>
-            <td>{{cursos.titulo}}</td>
-            <td>{{cursos.descripcion}}</td>
-            <td>{{cursos.precio}}</td>
-            <td>{{cursos.dirigido}}</td>
-        </tr>
-        <tr>
-            <td>Curso 2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Curso 3</td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let curso of cursos" [ngClass]="{oferta: curso.oferta}">
+            <td><img [src]="curso.imagen" [alt]="curso.titulo"></td>
+            <td>{{curso.titulo | uppercase}}</td>
+            <td>{{curso.descripcion}}</td>
+            <td>{{curso.precio | currency}}</td>
+            <td>{{curso.dirigido}}</td>
+            <td><span class="badge bg-success" *ngIf="curso.oferta">EN OFERTA</span></td>
         </tr>
     </tbody>
 </table>
