@@ -1,4 +1,6 @@
-<table class="table">
+<h2>Listado de Cursos</h2>
+
+<table class="table text-center">
     <thead>
         <tr>
             <th></th>
@@ -7,16 +9,21 @@
             <th>Precio</th>
             <th>Dirigido</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let curso of cursos" [ngClass]="{oferta: curso.oferta}">
-            <td><img [src]="curso.imagen" [alt]="curso.titulo"></td>
+            <td><img width="90" [src]="curso.imagen" [alt]="curso.titulo"></td>
             <td>{{curso.titulo | uppercase}}</td>
             <td>{{curso.descripcion}}</td>
             <td>{{curso.precio | currency}}</td>
             <td>{{curso.dirigido}}</td>
             <td><span class="badge bg-success" *ngIf="curso.oferta">EN OFERTA</span></td>
+            <td>
+                <button class="btn btn-primary btn-sm">Agregar</button>
+                <button class="btn btn-success btn-sm">Favorito</button>
+            </td>
         </tr>
     </tbody>
 </table>
