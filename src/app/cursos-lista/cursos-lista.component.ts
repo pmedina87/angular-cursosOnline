@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { Cursos } from './cursos';
+import { Component, OnInit } from '@angular/core';
+import { CursosCarritoService } from '../cursos-carrito.service';
+import { Curso } from './cursos';
 
 @Component({
   selector: 'app-cursos-lista',
   templateUrl: './cursos-lista.component.html',
   styleUrls: ['./cursos-lista.component.scss']
 })
-export class CursosListaComponent {
+export class CursosListaComponent implements OnInit {
 
-  cursos: Cursos[] = [
+  cursos: Curso[] = [
     {
       titulo: 'Curso 1',
       descripcion: 'Curso para docentes',
@@ -42,4 +43,13 @@ export class CursosListaComponent {
       oferta: true,
     },
   ];
+
+  constructor(private carritoService: CursosCarritoService){}
+  
+  ngOnInit(): void {
+  }
+
+  agregrarAlCarrito(curso: Curso): void {
+    this.carritoService.agregrarAlCarrito(curso);
+  }
 }

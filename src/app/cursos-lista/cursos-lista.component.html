@@ -21,8 +21,16 @@
             <td>{{curso.dirigido}}</td>
             <td><span class="badge bg-success" *ngIf="curso.oferta">EN OFERTA</span></td>
             <td>
-                <button class="btn btn-primary btn-sm">Agregar</button>
-                <button class="btn btn-success btn-sm">Favorito</button>
+                <div>
+                    <button class="btn btn-primary btn-sm" (click)="agregrarAlCarrito(curso)">
+                        Agregar
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-success btn-sm">
+                        Favorito
+                    </button>
+                </div>    
             </td>
         </tr>
     </tbody>
