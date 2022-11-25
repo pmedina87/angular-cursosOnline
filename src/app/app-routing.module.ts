@@ -26,7 +26,6 @@ const routes: Routes = [
     path: 'nosotros',
     component: CursosNosotrosComponent
   },
-
 ];
 
 @NgModule({

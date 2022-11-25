@@ -1,1 +1,48 @@
-<h2>Carrito de compras</h2>
+<div class="col">  
+    <h2>Carrito de compras</h2>
+    
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let curso of cursosAgregados$ | async">
+                <td>{{curso.titulo}}</td>
+                <td>{{curso.descripcion}}</td>
+                <td>
+                    <div>
+                        <button class="btn btn-danger btn-xs" (click)="quitarDeCarrito(curso)">
+                            Quitar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            Importe Total:
+        </tfoot>
+    </table>
+</div>
+
+
+
+
+
+
+    <!-- <ul>
+        <li *ngFor="let curso of cursosAgregados$ | async">
+            {{curso.titulo}}: {{curso.descripcion}}
+            <button class="btn btn-danger btn-xs"(click)="quitarDeCarrito(curso)">
+                Quitar
+            </button>
+        </li>
+    </ul>
+    <ul>
+        Importe Total: {{total}}
+    </ul>
+</div>    
+     -->
