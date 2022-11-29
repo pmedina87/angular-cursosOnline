@@ -5,14 +5,12 @@
         <thead>
             <tr>
                 <th>Titulo</th>
-                <th>Descripcion</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let curso of cursosAgregados$ | async">
                 <td>{{curso.titulo}}</td>
-                <td>{{curso.descripcion}}</td>
                 <td>
                     <div>
                         <button class="btn btn-danger btn-xs" (click)="quitarDeCarrito(curso)">
@@ -22,9 +20,12 @@
                 </td>
             </tr>
         </tbody>
-        <tfoot>
-            Importe Total:
-        </tfoot>
+        <div class="importe">
+            Importe Total: {{total$ | async | currency}}
+        </div>
+        <div class="confirmar">
+            <button class="btn btn-success">Confirmar</button>
+        </div>
     </table>
 </div>
 

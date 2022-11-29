@@ -11,25 +11,21 @@ import { Curso } from '../cursos-lista/cursos';
 export class CursosCarritoComponent implements OnInit {
 
   cursosAgregados$: Observable<Curso[]>;
-  total: number = 0;
-
-  constructor(private carritoService: CursosCarritoService) {
-    this.cursosAgregados$ = carritoService.lista.asObservable();
-  }
-
+  total$: Observable<number>;
+  
+  constructor(
+    private carritoService: CursosCarritoService,
+    ) {
+      this.cursosAgregados$ = carritoService.lista.asObservable();
+      this.total$ = carritoService.total.asObservable();
+    }
+    
   ngOnInit(): void {
-  }
-
-  incrementarTotal(curso: Curso){
-    // let precio : number;
-    // precio = this.carritoService.incrementarTotal(curso);
-    // this.total += precio;
+    
   }
 
   quitarDeCarrito(curso: Curso) {
     this.carritoService.quitarDeCarrito(curso);
   }
-
-
 
 }

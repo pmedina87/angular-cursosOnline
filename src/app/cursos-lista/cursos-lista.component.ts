@@ -14,7 +14,7 @@ export class CursosListaComponent implements OnInit {
 
   constructor(
     private carritoService: CursosCarritoService,
-    private cursosDataService: CursosDataService) { 
+    private cursosDataService: CursosDataService,) { 
 
     }
 
@@ -27,7 +27,4 @@ export class CursosListaComponent implements OnInit {
     this.carritoService.agregrarAlCarrito(curso);
   }
 
-  agregrarAFavorito(curso: Curso): void {
-    
-  }
 }
